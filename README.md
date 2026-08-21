@@ -26,9 +26,6 @@
 
 ---
 ## 二、核心模块技术细节
-### 2.1 模型架构 (core/model.py)
-#### 2.1.1 自定义CNN模型系列
-项目实现了多款针对动漫人脸识别优化的CNN模型：
 
 | 模型名称 | 参数量 | 适用场景 | 特点 |
 |---------|--------|---------|------|
@@ -38,9 +35,7 @@
 | large | ~20M | >2000张总图 | 更深更宽的网络 |
 | mobilenet | ~2M | CPU高效 | 深度可分离卷积 |
 
-#### 2.1.2 注意力机制
 两种注意力模块：
-
 **SEBlock (Squeeze-and-Excitation)**
 - 通过全局信息压缩和激励增强通道间特征表达
 - 压缩比: reduction=16
@@ -55,8 +50,8 @@
 - ResNet18/34/50
 - EfficientNet-B0/B1/B2
 
-### 2.2 训练模块 (core/train.py)
-#### 2.2.1 监督对比学习损失 (SupConLoss)
+
+#### 监督对比学习损失
 ```python
 class SupConLoss(nn.Module):
     def __init__(self, temperature=0.07, base_temperature=0.07):
